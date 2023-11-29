@@ -5,7 +5,7 @@ import {FaStar} from "react-icons/fa"
 
 import useFilmes from "../pages/Serviço";
 
-const Pesquisa = () => {
+const Pesquisa = ({showLink = true}) => {
   const [busca, setBusca] = useState('');
   const navigate = useNavigate();
 
@@ -45,6 +45,7 @@ const Pesquisa = () => {
               <p>
               <FaStar/>{}{filme.avaliacao}
               </p>
+              {showLink && <Link to ={`/filmes/${filme.id}`}>Detalhes</Link>}
              
             </div>
           ))}
