@@ -6,6 +6,34 @@ const getAll = async () => {
     return listMovies;
 }
 
+const create = async (filme) => {
+
+    const { nome, imagem, descricao, avaliacao } = filme
+    //console.log(nome)
+
+    const [createdfilme] = await connection.execute('INSERT INTO `filmes`( `nome`, `imagem`, `descricao`, `avaliacao`) VALUES (?,?,?,?)', [nome, imagem, descricao, avaliacao])
+    return createdfilme
+}
+
+const deleteFilm = async (id) => {
+    console.log(id)
+    const [deletedfilme] = await connection.execute('DELETE FROM `filmes` WHERE `id` = ?', [id]);
+    return [deletedfilme]
+}
+
+
+const updateFilm = async (id, filme) => {
+    //console.log(id)
+    const { nome } = filme
+    const [updatedfilm] = await connection.execute('UPDATE filmes SET nome = ? WHERE id = ?', [nome, id]);
+    return [updatedfilm]
+}
+
+
 module.exports = {
-    getAll
+    getAll,
+    create,
+    deleteFilm,
+    updateFilm
+
 };
