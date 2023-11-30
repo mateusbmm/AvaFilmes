@@ -1,15 +1,13 @@
-import React, { useState } from "react";
 import useFilmes from "./Serviço";
 import "../css/Home.css";
+
 import { Link, useParams } from "react-router-dom"
-import Home from "./Home";
+import { FaStar } from "react-icons/fa"
 
+// eslint-disable-next-line react/prop-types
+const Home = ({ showLink = true }) => {
+    const filmes = useFilmes();
 
-const Filmes = ({ showLink = true }) => {
-  const filmes = useFilmes();
-  const [idClicado, setIdClicado] = useState(Home.idClicado); // Usando useState para acessar o estado idClicado do componente Home
-
-  
     const { id } = useParams();
     let filme;
     filmes.forEach(element => {
@@ -17,14 +15,15 @@ const Filmes = ({ showLink = true }) => {
             filme = element;
         }
     });
-  
-  return (
-    <div>
-      <h2>Filmes</h2>
-      {filmes.length === 0 ? (
-        <p>Carregando...</p>
-      ) : (
-          <div>
+
+    console.log(id)
+    return (
+        <div>
+            <h1>Filmes</h1>
+            {filmes.length === 0 ? (
+                <p>Carregando...</p>
+            ) : (
+                <div>
 
                     <div className="filmesHome large" key={filme.id}>
                         <h2>{filme.nome}</h2>
@@ -44,11 +43,9 @@ const Filmes = ({ showLink = true }) => {
                     </div>
 
                 </div>
-          ))}
+            )}
         </div>
-      )}
-    </div>
-  );
+    );
 };
 
-export default Filmes;
+export default Home;
