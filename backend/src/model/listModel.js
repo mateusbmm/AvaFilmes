@@ -24,8 +24,11 @@ const deleteFilm = async (id) => {
 
 const updateFilm = async (id, filme) => {
     //console.log(id)
-    const { nome } = filme
-    const [updatedfilm] = await connection.execute('UPDATE filmes SET nome = ? WHERE id = ?', [nome, id]);
+    const { nome,imagem, descricao, avaliacao} = filme
+    const [updatedfilm] = await connection.execute('UPDATE `filmes` SET `nome`=?,`imagem`=?,`descricao`=?,`avaliacao`=? WHERE id = ?', [nome,imagem, descricao, avaliacao,id]);
+
+    
+
     return [updatedfilm]
 }
 

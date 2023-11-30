@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import useFilmes from "./Serviço";
 import { FaStar } from "react-icons/fa";
-import "./Home.css";
+import "../css/Home.css";
 
 const Home = ({ showLink = true }) => {
   const filmes = useFilmes();
@@ -21,6 +21,7 @@ const Home = ({ showLink = true }) => {
         <p>Carregando...</p>
       ) : (
         <div>
+
           {filmes.map((filme) => (
             <div className="filmesHome" key={filme.id}>
               <h2>{filme.nome}</h2>
@@ -41,6 +42,7 @@ const Home = ({ showLink = true }) => {
                 <div>
                   <h3>Descrição</h3>
                   <p>{filme.descricao}</p>
+
                 </div>
               )}
             </div>

@@ -1,7 +1,11 @@
+
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { BiCameraMovie } from "react-icons/bi"; // Importe o ícone BiCameraMovie
 import {FaStar} from "react-icons/fa"
+//import React from "react";
+import "../css/Home.css";
+
 
 import useFilmes from "../pages/Serviço";
 
