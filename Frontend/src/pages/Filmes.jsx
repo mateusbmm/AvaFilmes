@@ -1,10 +1,11 @@
 import useFilmes from "./Serviço";
 import "../css/Home.css";
 
+// eslint-disable-next-line no-unused-vars
 import { Link, useParams } from "react-router-dom"
 import { FaStar } from "react-icons/fa"
 
-// eslint-disable-next-line react/prop-types
+// eslint-disable-next-line react/prop-types, no-unused-vars
 const Home = ({ showLink = true }) => {
     const filmes = useFilmes();
 
