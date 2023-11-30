@@ -1,10 +1,11 @@
 import useFilmes from "./Serviço";
-import "./Home.css";
+import "../css/Home.css";
 
-import {Link} from "react-router-dom"
-import {FaStar} from "react-icons/fa"
+import { Link } from "react-router-dom"
+import { FaStar } from "react-icons/fa"
 
-const Home = ({showLink = true}) => {
+// eslint-disable-next-line react/prop-types
+const Home = ({ showLink = true }) => {
     const filmes = useFilmes();
 
     return (
@@ -13,15 +14,16 @@ const Home = ({showLink = true}) => {
             {filmes.length === 0 ? (
                 <p>Carregando...</p>
             ) : (
-                <div>
+                <div className="filmesContainer">
                     {filmes.map((filme) => (
+                        
                         <div className="filmesHome" key={filme.id}>
                             <h2>{filme.nome}</h2>
                             <img src={filme.imagem} alt={`Imagem de ${filme.nome}`} />
                             <p>
-                                <FaStar/>{}{filme.avaliacao}
+                                <FaStar />{ }{filme.avaliacao}
                             </p>
-                            {showLink && <Link to ={`/filmes/${filme.id}`}>Detalhes</Link>}
+                            {showLink && <Link to={`/filmes/${filme.id}`}>Detalhes</Link>}
                         </div>
                     ))}
                 </div>

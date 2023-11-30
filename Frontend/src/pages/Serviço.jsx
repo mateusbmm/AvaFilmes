@@ -7,6 +7,7 @@ const useFilmes = () => {
     const getFilmes = async () => {
         try {
             const response = await axios.get("http://localhost:3333/filmes");
+            //console.log(response.data )
             const data = response.data;
             setFilmes(data);
         } catch (error) {

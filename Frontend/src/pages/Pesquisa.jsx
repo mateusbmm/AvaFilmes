@@ -1,6 +1,6 @@
 //import React from "react";
 import useFilmes from "./Serviço";
-import "./Home.css";
+import "../css/Home.css";
 
 const Home = () => {
     const filmes = useFilmes();
